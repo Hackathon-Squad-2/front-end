@@ -17,7 +17,7 @@ export const Home = () => {
   const navigate = useNavigate();
 
   const handleInfo = (id: string) => {
-    // navigate(`/trails/${id}`);
+    navigate(`/trails/${id}`);
     console.log(id);
   };
 
