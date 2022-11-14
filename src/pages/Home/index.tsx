@@ -22,6 +22,8 @@ export const Home = () => {
   };
 
   useEffect(() => {
+    document.title = 'Home - Orange Evolution';
+
     const getTrails = async () => {
       const response = await api.get<Trail[]>('/trails');
 
