@@ -17,6 +17,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/trails/:id" element={<InfoTrail />} />
+        <Route path="/trails/:id/content" element={<Dashboard />} />
         <Route path="*" element={<Navigate to="/" />} />
 
         <Route path="/dashboard" element={<Dashboard />} />
