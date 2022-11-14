@@ -33,7 +33,7 @@ export const Register = () => {
 
     signIn({ email, password });
 
-    navigate('/profile');
+    navigate('/login');
   };
 
   return (
