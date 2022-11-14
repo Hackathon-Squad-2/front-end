@@ -1,6 +1,6 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
-import { Dashboard } from './pages/Dashboard';
 
+import { Dashboard } from './pages/Dashboard';
 import { Home } from './pages/Home';
 import { InfoTrail } from './pages/InfoTrail';
 import { Login } from './pages/Login';
