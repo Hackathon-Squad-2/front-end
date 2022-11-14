@@ -1,4 +1,5 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { Dashboard } from './pages/Dashboard';
 
 import { Home } from './pages/Home';
 import { InfoTrail } from './pages/InfoTrail';
@@ -17,9 +18,12 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/trails/:id" element={<InfoTrail />} />
         <Route path="*" element={<Navigate to="/" />} />
-        <Route path="/profile" element={<Profile />} />
 
-        <Route element={<ProtectedRoute />}></Route>
+        <Route path="/dashboard" element={<Dashboard />} />
+
+        <Route element={<ProtectedRoute />}>
+          <Route path="/profile" element={<Profile />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );
