@@ -37,12 +37,13 @@ export const Home = () => {
 
   return (
     <div>
+      <h1>Orange Evolution</h1>
+      <p>O que é a orange evolution</p>
       {trails.map((trail) => (
         <TrailCard
           key={trail.id}
           title={trail.title}
           description={trail.description}
-          creator={trail.creator}
           duration={trail.duration}
           handle={() => handleInfo(trail.id)}
         />
