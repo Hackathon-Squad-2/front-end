@@ -1,11 +1,32 @@
 import { GoDiffAdded, GoTrashcan } from 'react-icons/go';
 import { BiEdit } from 'react-icons/bi';
 import { TrailRow } from '../../components/TrailRow';
+import { useEffect, useState } from 'react';
+import { api } from '../../services/api';
+import { useParams } from 'react-router-dom';
 
 export const Dashboard = () => {
+  const { id } = useParams();
+
+  const [trails, setTrails] = useState({});
+
   const handleAdd = () => {};
   const handleEdit = () => {};
   const handleDelete = () => {};
+
+  const token = localStorage.getItem('@hackathon:token');
+
+  useEffect(() => {
+    const getTrails = async () => {
+      const response = await api.get(`/trails/${id}/content`, {
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+      });
+
+      console.log(response);
+    };
+  }, []);
 
   return (
     <>
