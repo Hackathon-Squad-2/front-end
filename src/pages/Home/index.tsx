@@ -18,7 +18,6 @@ export const Home = () => {
 
   const handleInfo = (id: string) => {
     navigate(`/trails/${id}`);
-    console.log(id);
   };
 
   useEffect(() => {

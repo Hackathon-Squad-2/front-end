@@ -29,6 +29,7 @@ export const InfoTrail = () => {
 
       if (response.status !== 200) return;
 
+      localStorage.setItem('@hackathon:trail', id!);
       setTrailInfo(response.data);
     };
 
