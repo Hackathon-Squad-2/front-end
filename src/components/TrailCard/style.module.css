@@ -1,0 +1,42 @@
+.card {
+  background-color: #f2e0d3;
+  border-radius: 3rem;
+  box-shadow: 0px 0.25rem 0.25rem #c57339;
+  padding: 0.5rem;
+  text-align: center;
+  width: 25rem;
+}
+
+.titulo {
+  color: #c57339;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.descricao {
+  color: #c57339;
+  font-size: 1.125rem;
+  line-height: 1.5rem;
+  margin: 1rem auto 0.5rem auto;
+  width: 80%;
+}
+
+.duracao {
+  color: #c57339;
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+
+.button {
+  background-color: #f2e0d3;
+  border: 5px solid #ffffff;
+  border-radius: 30px;
+  box-shadow: 0px 4px 4px #c57339;
+  color: #c57339;
+  font-family: 'Reem Kufi';
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0.5rem auto;
+  height: 3rem;
+  width: 10rem;
+}
