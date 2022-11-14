@@ -18,6 +18,22 @@ export const Register = () => {
 
   const [error, setError] = useState('');
 
+  const handleCourseSign = async (id: string) => {
+    const token = localStorage.getItem('@hackathon:token');
+
+    if (token) {
+      // const response = api
+      //   .get('/users/me', {
+      //     headers: {
+      //       'Access-Control-Allow-Origin': '*',
+      //       'Content-type': 'Application/json',
+      //       Authorization: `Bearer ${token}`,
+      //     },
+      //   })
+      //   .then((response) => console.log(response.data));
+    }
+  };
+
   const handleRegister = async () => {
     if (name.length == 0) return setError('O nome é obrigatorio');
     if (email.length == 0) return setError('O e-mail é obrigatorio');
