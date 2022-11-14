@@ -1,4 +1,5 @@
 import { createContext, ReactNode, useEffect, useState } from 'react';
+import { Navigate } from 'react-router-dom';
 
 import { api } from '../services/api';
 
@@ -37,6 +38,8 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     const { user, token } = response.data;
     localStorage.setItem('@hackathon:token', token);
 
+    console.log(user);
+
     setUser(user);
   };
 
@@ -49,12 +52,10 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     const token = localStorage.getItem('@hackathon:token');
 
     if (token) {
-      const response = api
+      api
         .get('/users/me', {
           headers: {
-            'Access-Control-Allow-Origin': '*',
-            'Content-type': 'Application/json',
-            Authorization: `Bearer ${token}`,
+            authorization: `Bearer ${token}`,
           },
         })
         .then((response) => setUser(response.data));
