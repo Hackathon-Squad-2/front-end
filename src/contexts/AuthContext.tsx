@@ -5,6 +5,7 @@ import { api } from '../services/api';
 type User = {
   name: string;
   email: string;
+  createdAt: string;
 };
 
 type SignInProps = {
@@ -37,12 +38,30 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     localStorage.setItem('@hackathon:token', token);
 
     setUser(user);
+    console.log('SigIn', user);
   };
 
   const signOut = () => {
     setUser(null);
     localStorage.removeItem('@hackathon:token');
   };
+
+  useEffect(() => {
+    const token = localStorage.getItem('@hackathon:token');
+
+    if (token) {
+      const response = api
+        .get('/users/me', {
+          headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Content-type': 'Application/json',
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((response) => setUser(response.data));
+    }
+    console.log('useEffect', user);
+  }, []);
 
   return (
     <AuthContext.Provider value={{ user, signIn, signOut }}>
