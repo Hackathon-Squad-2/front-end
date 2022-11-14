@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
+import logo from '../../assets/images/evolutionlogo.png';
+import style from './style.module.css';
+
 import { AiOutlineMail } from 'react-icons/ai';
 import { FiKey } from 'react-icons/fi';
 
@@ -22,13 +25,18 @@ export const Login = () => {
 
   return (
     <>
-      <img src="https://via.placeholder.com/150" alt="Logo" />
-      <div>
-        <h2>Login</h2>
+      <img
+        className={style.logo}
+        src={logo}
+        alt="Logo da Orange Juice Evolution"
+      />
+      <div className={style.card}>
+        <h2 className={style.titulo}>Login</h2>
         <label htmlFor="">
-          <div>
-            <AiOutlineMail />
+          <div className={style.divInput}>
+            <AiOutlineMail className={style.icon} />
             <input
+              className={style.input}
               type="text"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -36,9 +44,10 @@ export const Login = () => {
           </div>
         </label>
         <label htmlFor="">
-          <div>
-            <FiKey />
+          <div className={style.divInput}>
+            <FiKey className={style.icon} />
             <input
+              className={style.input}
               type="password"
               value={password}
               placeholder=""
@@ -46,12 +55,16 @@ export const Login = () => {
             />
           </div>
         </label>
-        <button onClick={handleLogin}>Entrar</button>
-        <div>
+        <button className={style.button} onClick={handleLogin}>
+          Entrar
+        </button>
+        <div className={style.rodape}>
           <span>
-            <Link to="/register">Criar conta</Link>
+            <Link className={style.link} to="/register">
+              Criar conta
+            </Link>
           </span>
-          <span>Esqueceu sua senha?</span>
+          <span className={style.senha}>Esqueceu sua senha?</span>
         </div>
       </div>
     </>
