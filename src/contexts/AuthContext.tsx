@@ -38,7 +38,6 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     localStorage.setItem('@hackathon:token', token);
 
     setUser(user);
-    console.log('SigIn', user);
   };
 
   const signOut = () => {
@@ -60,7 +59,6 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
         })
         .then((response) => setUser(response.data));
     }
-    console.log('useEffect', user);
   }, []);
 
   return (
