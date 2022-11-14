@@ -8,6 +8,7 @@ import { AiOutlineMail } from 'react-icons/ai';
 import { FiKey } from 'react-icons/fi';
 
 import { useAuth } from '../../hooks/useAuth';
+import { api } from '../../services/api';
 
 export const Login = () => {
   const { signIn } = useAuth();
@@ -17,8 +18,15 @@ export const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const [error, setError] = useState('');
+
   const handleLogin = async () => {
+    if (email.length === 0) return setError('O e-mail é obrigatorio');
+    if (password.length === 0) return setError('O a senha é obrigatoria');
+
     signIn({ email, password });
+
+    console.log(localStorage.getItem('@hackathon:token'));
 
     navigate('/profile');
   };

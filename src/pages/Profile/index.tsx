@@ -1,3 +1,7 @@
+import { useAuth } from '../../hooks/useAuth';
+
 export const Profile = () => {
-  return <h1>Profile</h1>;
+  const { user } = useAuth();
+
+  return <h1>@{user?.name}</h1>;
 };

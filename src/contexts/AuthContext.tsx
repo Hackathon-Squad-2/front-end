@@ -49,12 +49,10 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     const token = localStorage.getItem('@hackathon:token');
 
     if (token) {
-      const response = api
+      api
         .get('/users/me', {
           headers: {
-            'Access-Control-Allow-Origin': '*',
-            'Content-type': 'Application/json',
-            Authorization: `Bearer ${token}`,
+            authorization: `Bearer ${token}`,
           },
         })
         .then((response) => setUser(response.data));

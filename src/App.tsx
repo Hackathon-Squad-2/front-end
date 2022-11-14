@@ -18,6 +18,7 @@ function App() {
         <Route path="/trails/:id" element={<InfoTrail />} />
         <Route path="*" element={<Navigate to="/" />} />
         <Route path="/profile" element={<Profile />} />
+
         <Route element={<ProtectedRoute />}></Route>
       </Routes>
     </BrowserRouter>
