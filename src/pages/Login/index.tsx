@@ -1,14 +1,14 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-import logo from '../../assets/images/evolutionlogo.png';
-import style from './style.module.css';
-
-import { AiOutlineMail } from 'react-icons/ai';
 import { FiKey } from 'react-icons/fi';
+import { AiOutlineMail } from 'react-icons/ai';
 
 import { useAuth } from '../../hooks/useAuth';
-import { api } from '../../services/api';
+
+import logo from '../../assets/images/evolutionlogo.png';
+
+import style from './style.module.css';
 
 export const Login = () => {
   const { signIn } = useAuth();
@@ -25,8 +25,6 @@ export const Login = () => {
     if (password.length === 0) return setError('O a senha é obrigatoria');
 
     signIn({ email, password });
-
-    console.log(localStorage.getItem('@hackathon:token'));
 
     navigate('/profile');
   };
