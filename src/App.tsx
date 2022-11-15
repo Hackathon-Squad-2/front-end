@@ -20,10 +20,9 @@ function App() {
         <Route path="/trails/:id/content" element={<Dashboard />} />
         <Route path="*" element={<Navigate to="/" />} />
 
-        <Route path="/dashboard" element={<Dashboard />} />
-
         <Route element={<ProtectedRoute />}>
           <Route path="/profile" element={<Profile />} />
+          <Route path="/dashboard" element={<Dashboard />} />
         </Route>
       </Routes>
     </BrowserRouter>
