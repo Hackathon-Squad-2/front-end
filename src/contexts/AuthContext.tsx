@@ -47,6 +47,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   const signOut = () => {
     setUser(null);
     localStorage.removeItem('@hackathon:token');
+    localStorage.removeItem('@hackathon:user');
   };
 
   useEffect(() => {
