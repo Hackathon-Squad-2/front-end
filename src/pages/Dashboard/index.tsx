@@ -18,14 +18,10 @@ export const Dashboard = () => {
 
   useEffect(() => {
     const getTrails = async () => {
-      const response = await api.get(`/trails/${id}/content`, {
-        headers: {
-          authorization: `Bearer ${token}`,
-        },
-      });
-
-      console.log(response);
+      const response = await api.get(`/trails/${id}/content`);
     };
+
+    getTrails();
   }, []);
 
   return (
