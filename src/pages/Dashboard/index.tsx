@@ -69,7 +69,9 @@ export const Dashboard = () => {
       <div>
         <div className={style.topo}>
           <h1 className={style.admin}>Admin</h1>
-          <button className={style.novaTrilha}>Nova trilha</button>
+          <button className={style.novaTrilha} onClick={handleAddTrail}>
+            Nova trilha
+          </button>
         </div>
         <div>
           <table className={style.tabela}>
