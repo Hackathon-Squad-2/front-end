@@ -1,4 +1,4 @@
-import style from './style.component.css';
+import style from './style.module.css';
 
 type ContentCardsProps = {
   title: string;

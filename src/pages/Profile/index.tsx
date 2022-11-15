@@ -5,6 +5,11 @@ import { api } from '../../services/api';
 
 import { BiSearch } from 'react-icons/bi';
 
+import orangeLogo from '../../assets/images/orangelogo.png';
+import logo from '../../assets/images/profilelogo.png';
+import avatar from '../../assets/images/user.png';
+import style from './style.module.css';
+
 type Course = {
   id: string;
   title: string;
@@ -29,30 +34,44 @@ export const Profile = () => {
 
   return (
     <>
-      <div>
-        <img src="https://via.placeholder.com/150" alt="Logo" />
-        <div>
-          <Link to="/">Home</Link>
-        </div>
-        <div>
-          <BiSearch />
-          <input type="text" />
-        </div>
-      </div>
-      <div>
-        <img src="https://via.placeholder.com/150" alt="Perfil" />
-        <span>@{user?.name}</span>
-      </div>
-      <div>
-        <span>Meus Cursos</span>
-      </div>
-      {courses.map((course) => (
-        <Link key={course.id} to={`/course/${course.id}`}>
+      <div className={style.cabecalho}>
+        <img
+          className={style.logo}
+          src={logo}
+          alt="Logo da Orange Juice Evolution"
+        />
+        <div className={style.nav}>
           <div>
-            <h2>{course.title}</h2>
+            <Link className={style.home} to="/">
+              Home
+            </Link>
           </div>
-        </Link>
-      ))}
+          <div className={style.divInput}>
+            <BiSearch />
+            <input className={style.input} type="text" />
+          </div>
+        </div>
+      </div>
+      <div className={style.user}>
+        <img className={style.foto} src={avatar} alt="Imagem de perfil" />
+        <span className={style.nome}>@{user?.name}</span>
+      </div>
+      <div className={style.tituloCursos}>
+        <span>MEUS CURSOS</span>
+      </div>
+      <div className={style.cursos}>
+        {courses.map((course) => (
+          <Link
+            className={style.cardCurso}
+            key={course.id}
+            to={`/course/${course.id}`}
+          >
+            <div>
+              <h2 className={style.nomeCurso}>{course.title}</h2>
+            </div>
+          </Link>
+        ))}
+      </div>
     </>
   );
 };

@@ -3,6 +3,8 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import { api } from '../../services/api';
 import { dateConvert } from '../../utils/dateConvert';
 
+import style from './style.module.css';
+
 type User = {
   name: string;
   email: string;
@@ -65,48 +67,55 @@ export const AddContent = () => {
   }, []);
 
   return (
-    <div>
-      <h1>Adicionar novo Conteúdo</h1>
-      <div>
-        <label>Título do conteúdo</label>
+    <div className={style.geral}>
+      <h1 className={style.titulo}>Adicionar novo Conteúdo</h1>
+      <div className={style.formulario}>
+        <label className={style.label}>Título do conteúdo</label>
         <input
+          className={style.input}
           type="text"
           value={title}
           onChange={(e) => [setTitle(e.target.value), setError('')]}
         />
 
-        <label>Tipo</label>
+        <label className={style.label}>Tipo</label>
         <input
+          className={style.input}
           type="text"
           value={type}
           onChange={(e) => [setType(e.target.value), setError('')]}
         />
 
-        <label>URL</label>
+        <label className={style.label}>URL</label>
         <input
+          className={style.input}
           type="text"
           value={url}
           onChange={(e) => [setUrl(e.target.value), setError('')]}
         />
 
-        <label>Criador</label>
+        <label className={style.label}>Criador</label>
         <input
+          className={style.input}
           type="text"
           value={creator}
           onChange={(e) => [setCreator(e.target.value), setError('')]}
         />
 
-        <label>Duração</label>
+        <label className={style.label}>Duração</label>
         <input
+          className={style.input}
           type="text"
           value={duration}
           onChange={(e) => [setDuration(e.target.value), setError('')]}
         />
         {error.length > 0 && <span>{error}</span>}
-        <button onClick={handleSubmit}>Adicionar</button>
+        <button className={style.botao} onClick={handleSubmit}>
+          Adicionar
+        </button>
       </div>
       <Link to="/dashboard">
-        <button>Voltar</button>
+        <button className={style.botao}>Voltar</button>
       </Link>
     </div>
   );

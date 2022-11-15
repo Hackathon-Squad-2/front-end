@@ -5,6 +5,9 @@ import { useEffect, useState } from 'react';
 import { api } from '../../services/api';
 import { useNavigate, useParams } from 'react-router-dom';
 
+import logo from '../../assets/images/logoadmin.png';
+import style from './style.module.css';
+
 type User = {
   name: string;
   email: string;
@@ -62,16 +65,15 @@ export const Dashboard = () => {
 
   return (
     <>
-      <img src="https://via.placeholder.com/150" alt="Logo" />
+      <img className={style.logo} src={logo} alt="Logo" />
       <div>
-        <div>
-          <h1>Admin</h1>
-          <span>EDITAR POSTAGENS / POSTAGENS EXCLUÍDAS</span>
+        <div className={style.topo}>
+          <h1 className={style.admin}>Admin</h1>
+          <button className={style.novaTrilha}>Nova trilha</button>
         </div>
-        <button onClick={handleAddTrail}>Nova trilha</button>
         <div>
-          <table>
-            <thead>
+          <table className={style.tabela}>
+            <thead className={style.tableHead}>
               <tr>
                 <th>Título</th>
                 <th>Adicionado em</th>

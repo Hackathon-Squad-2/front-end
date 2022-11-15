@@ -8,6 +8,9 @@ import { api } from '../../services/api';
 import { BiSearch } from 'react-icons/bi';
 import { IoIosReturnLeft } from 'react-icons/io';
 
+import logo from '../../assets/images/profilelogo.png';
+import style from './style.module.css';
+
 type Content = {
   id: string;
   title: string;
@@ -73,43 +76,51 @@ export const CourseContent = () => {
   return (
     <>
       <div>
-        <div>
-          <img src="https://via.placeholder.com/150 " alt="Logo" />
-        </div>
-        <div>
-          <Link to="/">Home</Link>
+        <div className={style.cabecalho}>
           <div>
-            <BiSearch />
-            <input type="text" />
+            <img className={style.logo} src={logo} alt="Logo" />
+          </div>
+          <div className={style.nav}>
+            <Link className={style.home} to="/">
+              Home
+            </Link>
+            <div className={style.divInput}>
+              <BiSearch />
+              <input className={style.input} type="text" />
+            </div>
           </div>
         </div>
-        <div>
-          <div>
+        <div className={style.container}>
+          <div className={style.conteudos}>
             {contents?.map((content) => (
               <div key={content.id}>
-                <div>
-                  <h3>{content.title}</h3>
-                  <span>{content.creator}</span>
+                <div className={style.cabecalhoConteudo}>
+                  <div className={style.infoConteudo}>
+                    <h3 className={style.tituloConteudo}>{content.title}</h3>
+                    <span className={style.criadorConteudo}>
+                      {content.creator}
+                    </span>
+                  </div>
+                  <div>{getIconFromType(content.type)}</div>
                 </div>
-                <div>{getIconFromType(content.type)}</div>
                 <button onClick={() => handleAcess(content.url)}>
                   Acessar
                 </button>
               </div>
             ))}
           </div>
-          <div>
-            <div>
+          <div className={style.coluna}>
+            <div className={style.progresso}>
               <h3>Progresso</h3>
             </div>
-            <div>
+            <div className={style.criador}>
               <p>Trilha montada por {trail.creator}</p>
             </div>
-            <div>
+            <div className={style.descricao}>
               <p>{trail.description}</p>
             </div>
-            <div>
-              <Link to="/profile">
+            <div className={style.botaoVoltar}>
+              <Link className={style.linkVoltar} to="/profile">
                 <IoIosReturnLeft />
                 Voltar para meus cursos
               </Link>
