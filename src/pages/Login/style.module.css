@@ -102,3 +102,11 @@
   color: #000000;
   text-decoration: none;
 }
+
+.error {
+  color: darkred;
+  font-family: 'Reem Kufi';
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+}
