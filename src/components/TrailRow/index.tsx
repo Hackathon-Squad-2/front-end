@@ -1,6 +1,8 @@
 import { BiEdit } from 'react-icons/bi';
 import { GoDiffAdded, GoTrashcan } from 'react-icons/go';
 
+import style from './style.module.css';
+
 type TrailRowProps = {
   title: string;
   date: string;
@@ -20,18 +22,18 @@ export const TrailRow = ({
 }: TrailRowProps) => {
   return (
     <tr>
-      <td>{title}</td>
+      <td className={style.titulo}>{title}</td>
 
-      <td>{date}</td>
-      <td>{creator}</td>
+      <td className={style.data}>{date}</td>
+      <td className={style.criador}>{creator}</td>
       <td>
-        <button onClick={handleAddContent}>
+        <button className={style.botao} onClick={handleAddContent}>
           <GoDiffAdded />
         </button>
-        <button onClick={handleEdit}>
+        <button className={style.botao} onClick={handleEdit}>
           <BiEdit />
         </button>
-        <button onClick={handleDelete}>
+        <button className={style.botao} onClick={handleDelete}>
           <GoTrashcan />
         </button>
       </td>
