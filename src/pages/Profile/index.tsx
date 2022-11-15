@@ -47,9 +47,11 @@ export const Profile = () => {
         <span>Meus Cursos</span>
       </div>
       {courses.map((course) => (
-        <div key={course.id}>
-          <h2>{course.title}</h2>
-        </div>
+        <Link to={`/course/${course.id}`}>
+          <div key={course.id}>
+            <h2>{course.title}</h2>
+          </div>
+        </Link>
       ))}
     </>
   );
