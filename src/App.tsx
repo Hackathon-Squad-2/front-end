@@ -1,4 +1,5 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { AddContent } from './pages/AddContent';
 import { CourseContent } from './pages/CourseContent';
 
 import { Dashboard } from './pages/Dashboard';
@@ -25,6 +26,7 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/course/:id" element={<CourseContent />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/admin/:id/content" element={<AddContent />} />
         </Route>
       </Routes>
     </BrowserRouter>
