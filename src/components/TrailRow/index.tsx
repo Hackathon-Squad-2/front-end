@@ -5,7 +5,7 @@ type TrailRowProps = {
   title: string;
   date: string;
   creator: string;
-  handleAdd: () => void;
+  handleAddContent: () => void;
   handleEdit?: () => void;
   handleDelete: () => void;
 };
@@ -14,7 +14,7 @@ export const TrailRow = ({
   title,
   date,
   creator,
-  handleAdd,
+  handleAddContent,
   handleEdit,
   handleDelete,
 }: TrailRowProps) => {
@@ -25,7 +25,7 @@ export const TrailRow = ({
       <td>{date}</td>
       <td>{creator}</td>
       <td>
-        <button onClick={handleAdd}>
+        <button onClick={handleAddContent}>
           <GoDiffAdded />
         </button>
         <button onClick={handleEdit}>
