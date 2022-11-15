@@ -1,14 +1,14 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-import { FiKey } from 'react-icons/fi';
+import logo from '../../assets/images/logo.png';
+import style from './style.module.css';
+
 import { AiOutlineMail } from 'react-icons/ai';
+import { FiKey } from 'react-icons/fi';
 
 import { useAuth } from '../../hooks/useAuth';
-
-import logo from '../../assets/images/evolutionlogo.png';
-
-import style from './style.module.css';
+import { api } from '../../services/api';
 
 export const Login = () => {
   const { signIn } = useAuth();
@@ -26,6 +26,8 @@ export const Login = () => {
 
     signIn({ email, password });
 
+    console.log(localStorage.getItem('@hackathon:token'));
+
     navigate('/profile');
   };
 
@@ -38,7 +40,8 @@ export const Login = () => {
       />
       <div className={style.card}>
         <h2 className={style.titulo}>Login</h2>
-        <label htmlFor="">
+        <label className={style.label} htmlFor="">
+          Usuário
           <div className={style.divInput}>
             <AiOutlineMail className={style.icon} />
             <input
@@ -49,7 +52,8 @@ export const Login = () => {
             />
           </div>
         </label>
-        <label htmlFor="">
+        <label className={style.label} htmlFor="">
+          E-mail
           <div className={style.divInput}>
             <FiKey className={style.icon} />
             <input
