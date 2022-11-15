@@ -56,6 +56,8 @@ export const AddContent = () => {
     });
 
     if (response.status !== 201) return setError('Erro na criação');
+
+    navigate('/dashboard');
   };
 
   useEffect(() => {

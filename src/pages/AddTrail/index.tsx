@@ -40,6 +40,8 @@ export const AddTrail = () => {
     });
 
     if (response.status !== 201) return setError('Erro na criação');
+
+    navigate('/dashboard');
   };
 
   useEffect(() => {
