@@ -1,0 +1,57 @@
+.geral {
+  margin: 1rem auto;
+  width: 75%;
+}
+
+.titulo {
+  color: #c57339;
+  font-family: 'Reem Kufi';
+  font-size: 2.5rem;
+  font-weight: 600;
+  text-align: left;
+  text-shadow: 0px 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
+}
+
+.descricao {
+  color: #c57339;
+  font-family: 'Reem Kufi';
+  font-size: 1.5rem;
+  line-height: 2rem;
+  margin: 2rem 0;
+  text-align: center;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.cardsConteudo {
+  margin: 1rem 0;
+  text-align: left;
+  width: 30%;
+}
+
+.button {
+  background: #f2e0d3;
+  border: 5px solid #ffffff;
+  border-radius: 30px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  color: #c57339;
+  font-family: 'Reem Kufi';
+  font-size: 1.5rem;
+  font-weight: 700;
+  height: 4rem;
+  position: absolute;
+  right: 12.5%;
+  text-align: center;
+  width: 15rem;
+}
+
+.button:hover {
+  background-color: #c57339;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.button:active {
+  background-color: #ffffff;
+  border-color: #c57339;
+  color: #c57339;
+}

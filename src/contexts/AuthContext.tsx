@@ -5,6 +5,7 @@ import { api } from '../services/api';
 type User = {
   name: string;
   email: string;
+  createdAt: string;
 };
 
 type SignInProps = {
@@ -14,7 +15,7 @@ type SignInProps = {
 
 type AuthContextData = {
   user: User | null;
-  signIn: (data: SignInProps) => void;
+  signIn: (data: SignInProps) => Promise<unknown>;
   signOut: () => void;
 };
 
@@ -28,21 +29,35 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   const [user, setUser] = useState<User | null>(null);
 
   const signIn = async ({ email, password }: SignInProps) => {
-    const response = await api.post('/users/auth/login', {
-      email,
-      password,
+    return new Promise(async (resolve) => {
+      const response = await api.post('/users/auth/login', {
+        email,
+        password,
+      });
+
+      const { user, token } = response.data;
+      localStorage.setItem('@hackathon:user', JSON.stringify(user));
+      localStorage.setItem('@hackathon:token', token);
+
+      setUser(user);
+      resolve('');
     });
-
-    const { user, token } = response.data;
-    localStorage.setItem('@hackathon:token', token);
-
-    setUser(user);
   };
 
   const signOut = () => {
     setUser(null);
     localStorage.removeItem('@hackathon:token');
+    localStorage.removeItem('@hackathon:user');
   };
+
+  useEffect(() => {
+    const token = localStorage.getItem('@hackathon:token');
+    const localUser = JSON.parse(localStorage.getItem('@hackathon:user')!);
+
+    if (!user) {
+      setUser(localUser);
+    }
+  }, []);
 
   return (
     <AuthContext.Provider value={{ user, signIn, signOut }}>

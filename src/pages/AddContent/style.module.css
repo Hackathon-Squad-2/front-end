@@ -1,0 +1,56 @@
+.geral {
+  text-align: center;
+}
+
+.titulo {
+  font-family: 'Reem Kufi';
+  font-weight: 700;
+  font-size: 2rem;
+  margin: 2rem 0;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  margin: 0 auto;
+}
+
+.label {
+  font-family: 'Reem Kufi';
+  font-size: 1.5rem;
+  line-height: 2rem;
+  text-align: left;
+  margin-left: 1rem;
+}
+
+.input {
+  background: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 50px;
+  outline: none;
+  border: none;
+  height: 2rem;
+}
+
+.botao {
+  background: #f2e0d3;
+  border: 0.1875rem solid #ffffff;
+  box-shadow: 0px 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
+  border-radius: 2rem;
+  margin: 2rem auto;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+}
+
+.botao:hover {
+  background-color: #c57339;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.botao:active {
+  background-color: #ffffff;
+  border-color: #c57339;
+  color: #c57339;
+}
