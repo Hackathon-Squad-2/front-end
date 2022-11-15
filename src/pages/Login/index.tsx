@@ -44,7 +44,10 @@ export const Login = () => {
 
     await signIn({ email, password });
 
-    handleCourseSign();
+    const trail = localStorage.getItem('@hackathon:trail');
+
+    if (trail) handleCourseSign();
+    else navigate('/profile');
   };
 
   return (
