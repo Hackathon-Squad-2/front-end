@@ -9,26 +9,12 @@ type User = {
   isAdmin: boolean;
 };
 
-const validOptions = [
-  'artigo',
-  'apostila',
-  'curso',
-  'desafio',
-  'ferramenta',
-  'glossario',
-  'live',
-  'livro',
-  'podcast',
-  'playlist',
-  'video',
-];
-
-export const AddContent = () => {
+export const AddTrail = () => {
   const { id } = useParams();
 
   const [title, setTitle] = useState('');
-  const [type, setType] = useState('');
-  const [url, setUrl] = useState('');
+  const [banner, setBanner] = useState('');
+  const [description, setDescription] = useState('');
   const [creator, setCreator] = useState('');
   const [duration, setDuration] = useState('');
 
@@ -40,19 +26,17 @@ export const AddContent = () => {
 
   const handleSubmit = async () => {
     if (title.length == 0) return setError('Título é obrigatorio');
-    if (type.length == 0) return setError('Tipo é obrigatorio');
-    if (!validOptions.includes(type)) return setError('Tipo invalido!');
-
-    if (url.length == 0) return setError('Url é obrigatorio');
+    if (banner.length == 0) return setError('O banner é obrigatorio');
     if (creator.length == 0) return setError('Criador é obrigatorio');
     if (duration.length == 0) return setError('Duração é obrigatorio');
+    if (description.length == 0) return setError('Description é obrigatorio');
 
-    const response = await api.post(`/admin/trails/${id}/content`, {
+    const response = await api.post(`/admin/trails/`, {
       title,
-      type,
+      banner,
       creator,
       duration: dateConvert.toMinutes(duration),
-      url,
+      description,
     });
 
     if (response.status !== 201) return setError('Erro na criação');
@@ -66,27 +50,20 @@ export const AddContent = () => {
 
   return (
     <div>
-      <h1>Adicionar novo Conteúdo</h1>
+      <h1>Adicionar nova Trilha</h1>
       <div>
-        <label>Título do conteúdo</label>
+        <label>Título da trilha</label>
         <input
           type="text"
           value={title}
           onChange={(e) => [setTitle(e.target.value), setError('')]}
         />
 
-        <label>Tipo</label>
+        <label>Banner</label>
         <input
           type="text"
-          value={type}
-          onChange={(e) => [setType(e.target.value), setError('')]}
-        />
-
-        <label>URL</label>
-        <input
-          type="text"
-          value={url}
-          onChange={(e) => [setUrl(e.target.value), setError('')]}
+          value={banner}
+          onChange={(e) => [setBanner(e.target.value), setError('')]}
         />
 
         <label>Criador</label>
@@ -102,6 +79,13 @@ export const AddContent = () => {
           value={duration}
           onChange={(e) => [setDuration(e.target.value), setError('')]}
         />
+
+        <label>Descrição</label>
+        <textarea
+          value={description}
+          onChange={(e) => [setDescription(e.target.value), setError('')]}
+        />
+
         {error.length > 0 && <span>{error}</span>}
         <button onClick={handleSubmit}>Adicionar</button>
       </div>

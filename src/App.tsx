@@ -1,5 +1,6 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { AddContent } from './pages/AddContent';
+import { AddTrail } from './pages/AddTrail';
 import { CourseContent } from './pages/CourseContent';
 
 import { Dashboard } from './pages/Dashboard';
@@ -27,6 +28,7 @@ function App() {
           <Route path="/course/:id" element={<CourseContent />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/admin/:id/content" element={<AddContent />} />
+          <Route path="/admin/trails" element={<AddTrail />} />
         </Route>
       </Routes>
     </BrowserRouter>

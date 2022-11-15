@@ -26,8 +26,8 @@ export const Dashboard = () => {
 
   const [trails, setTrails] = useState<Trail[]>([]);
 
-  const handleAddTrail = (id: string) => {
-    navigate(`/admin/trail`);
+  const handleAddTrail = () => {
+    navigate(`/admin/trails`);
   };
 
   const handleAddContent = (id: string) => {
@@ -41,7 +41,7 @@ export const Dashboard = () => {
   const handleDelete = async (id: string) => {
     const response = await api.delete(`/admin/trails/${id}`);
 
-    console.log(response);
+    if (response.status === 204) getTrails();
   };
 
   const token = localStorage.getItem('@hackathon:token');
@@ -49,16 +49,16 @@ export const Dashboard = () => {
 
   const navigate = useNavigate();
 
+  const getTrails = async () => {
+    const response = await api.get<Trail[]>(`/admin/trails/`);
+
+    if (response.status !== 200) return;
+
+    setTrails(response.data);
+  };
+
   useEffect(() => {
     if (!user || !user.isAdmin) return navigate('/login');
-
-    const getTrails = async () => {
-      const response = await api.get<Trail[]>(`/trails/`);
-
-      if (response.status !== 200) return;
-
-      setTrails(response.data);
-    };
 
     getTrails();
   }, []);
