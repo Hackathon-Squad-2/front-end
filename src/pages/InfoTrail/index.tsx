@@ -3,6 +3,8 @@ import { Link, useParams } from 'react-router-dom';
 
 import { ContentCard } from '../../components/ContentCard';
 
+import style from './style.module.css';
+
 import { api } from '../../services/api';
 
 type Content = {
@@ -37,10 +39,10 @@ export const InfoTrail = () => {
   }, []);
 
   return (
-    <>
-      <h1>{trailInfo.title}</h1>
-      <p>{trailInfo.description}</p>
-      <div>
+    <div className={style.geral}>
+      <h1 className={style.titulo}>{trailInfo.title}</h1>
+      <p className={style.descricao}>{trailInfo.description}</p>
+      <div className={style.cardsConteudo}>
         {trailInfo.content?.map((content) => (
           <ContentCard
             key={content.id}
@@ -51,8 +53,8 @@ export const InfoTrail = () => {
         ))}
       </div>
       <Link to="/register">
-        <button>Quero Aprender</button>
+        <button className={style.button}>Quero Aprender</button>
       </Link>
-    </>
+    </div>
   );
 };
