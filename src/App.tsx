@@ -1,4 +1,5 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { CourseContent } from './pages/CourseContent';
 
 import { Dashboard } from './pages/Dashboard';
 import { Home } from './pages/Home';
@@ -22,6 +23,7 @@ function App() {
 
         <Route element={<ProtectedRoute />}>
           <Route path="/profile" element={<Profile />} />
+          <Route path="/course/:id" element={<CourseContent />} />
           <Route path="/dashboard" element={<Dashboard />} />
         </Route>
       </Routes>
