@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { TrailCard } from '../../components/TrailCard';
 import { api } from '../../services/api';
 
-import logo from '../../assets/images/evolutionlogo.png';
+import logo from '../../assets/images/logo.png';
 import style from './style.module.css';
 
 type Trail = {
@@ -40,25 +40,11 @@ export const Home = () => {
   return (
     <div>
       <img className={style.logo} src={logo} alt="Logo da Orange Evolution" />
-      <p className={style.titulo}>
-        O que é a orange evolution?
-        <br />
-        Se você:
-      </p>
-      <ul className={style.lista}>
-        <li>● Procura conteúdo tech de qualidade e gratuito;</li>
-        <li>● Está migrando de carreira para a área tech;</li>
-        <li>
-          ● Sente que com o apoio de uma comunidade vitaminada irá se
-          desenvolver mais;
-        </li>
-        <li>
-          ● Quer se preparar de forma mais assertiva para processos seletivos;
-        </li>
-        <li>● É protagonista da sua história e formação;</li>
-      </ul>
-      <p className={style.conclusao}>
-        O Orange Evolution é para você, pode chegar!
+      <p className={style.titulo}>O que é a orange evolution?</p>
+      <p className={style.conteudo}>
+        O Orange Evolution consiste em trilhas totalmente gratuitas para que
+        você possa iniciar a sua carreira na tecnologia. Você terá acesso a
+        vídeos, lives, artigos, apostilas e cursos gratuitos. Confira!
       </p>
       <div className={style.trilhas}>
         {trails.map((trail) => (
