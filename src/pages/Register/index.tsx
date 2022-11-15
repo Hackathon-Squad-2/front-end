@@ -89,7 +89,7 @@ export const Register = () => {
           onChange={(e) => [setPassword(e.target.value), setError('')]}
         />
       </div>
-      <span className={style.error}>{error}</span>
+      {error.length > 0 && <span className={style.error}>{error}</span>}
       <button className={style.button} onClick={handleRegister}>
         Cadastrar
       </button>
