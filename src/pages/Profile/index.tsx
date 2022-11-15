@@ -47,8 +47,8 @@ export const Profile = () => {
         <span>Meus Cursos</span>
       </div>
       {courses.map((course) => (
-        <Link to={`/course/${course.id}`}>
-          <div key={course.id}>
+        <Link key={course.id} to={`/course/${course.id}`}>
+          <div>
             <h2>{course.title}</h2>
           </div>
         </Link>
