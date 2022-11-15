@@ -11,14 +11,35 @@ type User = {
   isAdmin: boolean;
 };
 
+type Trail = {
+  id: string;
+  title: string;
+  creator: string;
+  createdAt: string;
+};
+
 export const Dashboard = () => {
   const { id } = useParams();
 
-  const [trails, setTrails] = useState({});
+  const [trails, setTrails] = useState<Trail[]>([]);
 
-  const handleAdd = () => {};
-  const handleEdit = () => {};
-  const handleDelete = () => {};
+  const handleAddTrail = (id: string) => {
+    navigate(`/admin/trail`);
+  };
+
+  const handleAddContent = (id: string) => {
+    navigate(`/admin/${id}/content`);
+  };
+
+  const handleEdit = () => {
+    return;
+  };
+
+  const handleDelete = async (id: string) => {
+    const response = await api.delete(`/admin/trails/${id}`);
+
+    console.log(response);
+  };
 
   const token = localStorage.getItem('@hackathon:token');
   const user: User = JSON.parse(localStorage.getItem('@hackathon:user')!);
@@ -29,7 +50,11 @@ export const Dashboard = () => {
     if (!user || !user.isAdmin) return navigate('/login');
 
     const getTrails = async () => {
-      const response = await api.get(`/trails/${id}/content`);
+      const response = await api.get<Trail[]>(`/trails/`);
+
+      if (response.status !== 200) return;
+
+      setTrails(response.data);
     };
 
     getTrails();
@@ -55,32 +80,17 @@ export const Dashboard = () => {
               </tr>
             </thead>
             <tbody>
-              <TrailRow
-                title="Full Stack"
-                date="Em 11/11/2022 22:32"
-                creator="ADMIN"
-                handleAdd={handleAdd}
-                handleEdit={handleEdit}
-                handleDelete={handleDelete}
-              />
-
-              <TrailRow
-                title="UX/UI Design"
-                date="Em 12/11/2022   12:40"
-                creator="ADMIN"
-                handleAdd={handleAdd}
-                handleEdit={handleEdit}
-                handleDelete={handleDelete}
-              />
-
-              <TrailRow
-                title="QA (Quality Assurance)"
-                date="Em 12/11/2022   15:39"
-                creator="ADMIN"
-                handleAdd={handleAdd}
-                handleEdit={handleEdit}
-                handleDelete={handleDelete}
-              />
+              {trails?.map((trail) => (
+                <TrailRow
+                  key={trail.id}
+                  title={trail.title}
+                  date={trail.createdAt}
+                  creator={trail.creator}
+                  handleAddContent={() => handleAddContent(trail.id)}
+                  handleEdit={handleEdit}
+                  handleDelete={() => handleDelete(trail.id)}
+                />
+              ))}
             </tbody>
           </table>
         </div>
