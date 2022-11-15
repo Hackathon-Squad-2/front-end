@@ -18,19 +18,20 @@ export const Register = () => {
 
   const [error, setError] = useState('');
 
-  const handleCourseSign = async (id: string) => {
+  const handleCourseSign = async () => {
     const token = localStorage.getItem('@hackathon:token');
+    const user = localStorage.getItem('@hackathon:user');
+    const trail = localStorage.getItem('@hackathon:trail');
 
-    if (token) {
-      // const response = api
-      //   .get('/users/me', {
-      //     headers: {
-      //       'Access-Control-Allow-Origin': '*',
-      //       'Content-type': 'Application/json',
-      //       Authorization: `Bearer ${token}`,
-      //     },
-      //   })
-      //   .then((response) => console.log(response.data));
+    console.log(token, user, trail);
+
+    if (token && user && trail) {
+      const response = await api.post('/users/courses/sign', {
+        trailsIdList: [`${trail}`],
+      });
+
+      localStorage.removeItem('@hackathon:trail');
+      navigate('/profile');
     }
   };
 
@@ -47,9 +48,9 @@ export const Register = () => {
 
     if (response.status !== 201) return;
 
-    signIn({ email, password });
+    await signIn({ email, password });
 
-    navigate('/login');
+    handleCourseSign();
   };
 
   return (
