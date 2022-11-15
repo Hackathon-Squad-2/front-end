@@ -17,7 +17,6 @@ Aplicação desenvolvida durante o Hackathon do <a href="https://digital.fcamara
 1. [Tecnologias](#tecnologias)
 1. [Requisitos](#requisitos)
 1. [Instalação](#instalação)
-1. [Documentação](#documentação)
 1. [Como Contribuir](#como-contribuir)
 1. [Licença](#licença)
 
@@ -67,11 +66,18 @@ Verifique que o seu sistema tenha as dependências listadas em [Requisitos](#req
 - `login` - /login
 - `register`- /register
 
-Para acesso as trilhas como admistrador, entre no login com os seguintes dados:
+Para acesso as trilhas como administrador, entre no login com os seguintes dados:
+
+**E-mail**:
 
 ```
-email: admin@squad2.com
-password: squad2admin
+admin@squad2.com
+```
+
+**Senha**:
+
+```
+squad2admin
 ```
 
 Você será automaticamente redirecionado para o `Dashboard` onde poderá adicionar/remover trilhas e conteúdos.
