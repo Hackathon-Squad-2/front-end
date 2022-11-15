@@ -60,15 +60,64 @@
   justify-content: space-between;
 }
 
+.conteudos {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  width: 60%;
+  margin: 3rem auto;
+  border-radius: 1.75rem;
+  padding: 1.5rem;
+}
+
+.cardConteudo {
+  background: #f2e0d3;
+  box-shadow: 0px 0.25rem 0.25rem #c57339;
+  border-radius: 1.75rem;
+  width: 30%;
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+}
+
+.infoConteudo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.5rem;
+  font-family: 'Reem Kufi';
+}
+
+.criadorConteudo {
+  font-family: 'Reem Kufi';
+  color: #8c5228;
+}
+
+.botaoConteudo {
+  background: #f2e0d3;
+  border: 3px solid #ffffff;
+  box-shadow: 0px 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
+  border-radius: 1.75rem;
+  height: 2rem;
+  margin-top: 1rem;
+}
+
+.botaoConteudo:hover {
+  background-color: #c57339;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.botaoConteudo:active {
+  background-color: #ffffff;
+  border-color: #c57339;
+  color: #c57339;
+}
+
 .coluna {
   display: flex;
   flex-direction: column;
   margin: 3rem 3rem 0 0;
   width: 20%;
-}
-
-.conteudos {
-  display: flex;
 }
 
 .progresso {

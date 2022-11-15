@@ -93,17 +93,20 @@ export const CourseContent = () => {
         <div className={style.container}>
           <div className={style.conteudos}>
             {contents?.map((content) => (
-              <div key={content.id}>
+              <div className={style.cardConteudo} key={content.id}>
                 <div className={style.cabecalhoConteudo}>
                   <div className={style.infoConteudo}>
                     <h3 className={style.tituloConteudo}>{content.title}</h3>
-                    <span className={style.criadorConteudo}>
-                      {content.creator}
-                    </span>
+                    <div>{getIconFromType(content.type)}</div>
                   </div>
-                  <div>{getIconFromType(content.type)}</div>
+                  <span className={style.criadorConteudo}>
+                    {content.creator}
+                  </span>
                 </div>
-                <button onClick={() => handleAcess(content.url)}>
+                <button
+                  className={style.botaoConteudo}
+                  onClick={() => handleAcess(content.url)}
+                >
                   Acessar
                 </button>
               </div>
