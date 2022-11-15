@@ -40,3 +40,15 @@
   height: 3rem;
   width: 10rem;
 }
+
+.button:hover {
+  background-color: #c57339;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.button:active {
+  background-color: #ffffff;
+  border-color: #c57339;
+  color: #c57339;
+}

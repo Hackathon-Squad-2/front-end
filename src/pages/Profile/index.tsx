@@ -1,7 +1,17 @@
+import { useEffect } from 'react';
 import { useAuth } from '../../hooks/useAuth';
+import { api } from '../../services/api';
 
 export const Profile = () => {
-  const { user } = useAuth();
+  useEffect(() => {
+    const getUserInfo = async () => {
+      const response = await api.get('/users/me');
 
-  return <h1>@{user?.name}</h1>;
+      console.log(response);
+    };
+
+    getUserInfo();
+  }, []);
+
+  return <h1>@</h1>;
 };

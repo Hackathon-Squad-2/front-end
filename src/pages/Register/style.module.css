@@ -1,0 +1,105 @@
+.card {
+  background-color: #f2e0d3;
+  border-radius: 3rem;
+  box-shadow: 0px 0.25rem 0.25rem #c57339;
+  margin: 2rem auto;
+  padding: 0.25rem 0;
+  text-align: center;
+  width: 33%;
+}
+
+.logo {
+  display: block;
+  margin: 1.75rem auto;
+  text-align: center;
+  width: 7.5rem;
+}
+
+.divInput {
+  background-color: #f2e0d3;
+  border: none;
+  border-bottom: 1px solid #c57339;
+  color: #c57339;
+  font-family: 'Reem Kufi';
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 1rem auto;
+  width: 50%;
+}
+
+.input {
+  background-color: #f2e0d3;
+  border: none;
+  font-size: 1.5rem;
+  margin: 0.25rem 0;
+  outline: none;
+  padding-left: 1rem;
+  width: 85%;
+}
+
+.input::placeholder {
+  color: #c57339;
+}
+
+.error {
+  color: darkred;
+  font-family: 'Reem Kufi';
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.button {
+  background-color: #f2e0d3;
+  border: 0.188rem solid #ffffff;
+  border-color: #ffffff;
+  border-radius: 1.875rem;
+  box-shadow: 0px 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
+  color: #c57339;
+  font-family: 'Reem Kufi';
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 600;
+  margin: 1rem auto 1.5rem auto;
+  text-align: center;
+  width: 10rem;
+}
+
+.button:hover {
+  background-color: #c57339;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.button:active {
+  background-color: #ffffff;
+  border-color: #c57339;
+  color: #c57339;
+}
+
+.terms {
+  color: #000000;
+  font-family: 'Reem Kufi';
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 1.5rem;
+  text-align: center;
+  margin: 0.5rem auto;
+  width: 80%;
+}
+
+.login {
+  color: #000000;
+  font-family: 'Reem Kufi';
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 1.5rem;
+  text-align: center;
+  margin: 0.5rem auto;
+  width: 80%;
+}
+
+.link {
+  color: #000000;
+  text-decoration: underline;
+}

@@ -3,6 +3,9 @@ import { Link, useNavigate } from 'react-router-dom';
 import { FiKey } from 'react-icons/fi';
 import { AiOutlineUser, AiOutlineMail } from 'react-icons/ai';
 
+import logo from '../../assets/images/registerlogo.png';
+import style from './style.module.css';
+
 import { useAuth } from '../../hooks/useAuth';
 
 import { api } from '../../services/api';
@@ -54,44 +57,51 @@ export const Register = () => {
   };
 
   return (
-    <div>
-      <img src="https://via.placeholder.com/150" alt="Logo" />
-      <div>
+    <div className={style.card}>
+      <img className={style.logo} src={logo} alt="Logo" />
+      <div className={style.divInput}>
         <AiOutlineUser />
         <input
+          className={style.input}
           type="text"
           value={name}
           placeholder="Nome"
           onChange={(e) => [setName(e.target.value), setError('')]}
         />
       </div>
-      <div>
+      <div className={style.divInput}>
         <AiOutlineMail />
         <input
+          className={style.input}
           type="text"
           value={email}
           placeholder="E-mail"
           onChange={(e) => [setEmail(e.target.value), setError('')]}
         />
       </div>
-      <div>
+      <div className={style.divInput}>
         <FiKey />
         <input
+          className={style.input}
           type="password"
           value={password}
           placeholder="Senha"
           onChange={(e) => [setPassword(e.target.value), setError('')]}
         />
       </div>
-      <span>{error}</span>
-      <button onClick={handleRegister}>Cadastrar</button>
-      <p>
+      <span className={style.error}>{error}</span>
+      <button className={style.button} onClick={handleRegister}>
+        Cadastrar
+      </button>
+      <p className={style.terms}>
         Ao clicar em "cadastrar”, declaro que concordo com as Políticas de
         Privacidade e os Termos de Uso da Orange Juice.
       </p>
-      <p>
-        Já possui uma conta? Fazer
-        <Link to="/login">Login</Link>
+      <p className={style.login}>
+        Já possui uma conta? Fazer&nbsp;
+        <Link className={style.link} to="/login">
+          Login
+        </Link>
       </p>
     </div>
   );
