@@ -25,7 +25,9 @@ export const Login = () => {
     const user = localStorage.getItem('@hackathon:user');
     const trail = localStorage.getItem('@hackathon:trail');
 
-    if (token && user && trail) {
+    const isAdmin = JSON.parse(user!).isAdmin;
+
+    if (token && user && trail && !isAdmin) {
       const response = await api.post('/users/courses/sign', {
         trailsIdList: [`${trail}`],
       });
@@ -35,7 +37,7 @@ export const Login = () => {
       navigate('/profile');
     }
 
-    if (JSON.parse(user!).isAdmin) navigate('/dashboard');
+    navigate('/dashboard');
   };
 
   const handleLogin = async () => {
