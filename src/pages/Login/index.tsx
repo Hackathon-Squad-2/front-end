@@ -31,8 +31,11 @@ export const Login = () => {
       });
 
       localStorage.removeItem('@hackathon:trail');
+
       navigate('/profile');
     }
+
+    if (JSON.parse(user!).isAdmin) navigate('/dashboard');
   };
 
   const handleLogin = async () => {
