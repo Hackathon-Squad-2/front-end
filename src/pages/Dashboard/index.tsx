@@ -3,7 +3,13 @@ import { BiEdit } from 'react-icons/bi';
 import { TrailRow } from '../../components/TrailRow';
 import { useEffect, useState } from 'react';
 import { api } from '../../services/api';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+
+type User = {
+  name: string;
+  email: string;
+  isAdmin: boolean;
+};
 
 export const Dashboard = () => {
   const { id } = useParams();
@@ -15,8 +21,13 @@ export const Dashboard = () => {
   const handleDelete = () => {};
 
   const token = localStorage.getItem('@hackathon:token');
+  const user: User = JSON.parse(localStorage.getItem('@hackathon:user')!);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
+    if (!user || !user.isAdmin) return navigate('/login');
+
     const getTrails = async () => {
       const response = await api.get(`/trails/${id}/content`);
     };
