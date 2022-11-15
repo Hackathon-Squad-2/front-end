@@ -1,3 +1,5 @@
+import style from './style.component.css';
+
 type ContentCardsProps = {
   title: string;
   type: string;
@@ -6,12 +8,12 @@ type ContentCardsProps = {
 
 export const ContentCard = ({ title, type, creator }: ContentCardsProps) => {
   return (
-    <>
-      <h2>{title}</h2>
-      <div>
-        <span>{type}</span>
-        <span>{creator}</span>
+    <div className={style.cardConteudo}>
+      <div className={style.cabecalho}>
+        <h2 className={style.titulo}>{title}</h2>
+        <span className={style.tipo}>{type}</span>
       </div>
-    </>
+      <span className={style.criador}>{creator}</span>
+    </div>
   );
 };
