@@ -92,6 +92,7 @@ export const CourseContent = () => {
         </div>
         <div className={style.container}>
           <div className={style.conteudos}>
+            <h2 className={style.tituloTrilha}>{trail.title}</h2>
             {contents?.map((content) => (
               <div className={style.cardConteudo} key={content.id}>
                 <div className={style.cabecalhoConteudo}>
