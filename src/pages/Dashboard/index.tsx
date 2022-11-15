@@ -23,8 +23,8 @@ export const Dashboard = () => {
 
   const [trails, setTrails] = useState<Trail[]>([]);
 
-  const handleAddTrail = (id: string) => {
-    navigate(`/admin/trail`);
+  const handleAddTrail = () => {
+    navigate(`/admin/trails`);
   };
 
   const handleAddContent = (id: string) => {
@@ -68,7 +68,7 @@ export const Dashboard = () => {
           <h1>Admin</h1>
           <span>EDITAR POSTAGENS / POSTAGENS EXCLUÍDAS</span>
         </div>
-        <button>Nova trilha</button>
+        <button onClick={handleAddTrail}>Nova trilha</button>
         <div>
           <table>
             <thead>
