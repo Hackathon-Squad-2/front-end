@@ -20,13 +20,28 @@ export const Login = () => {
 
   const [error, setError] = useState('');
 
+  const handleCourseSign = async () => {
+    const token = localStorage.getItem('@hackathon:token');
+    const user = localStorage.getItem('@hackathon:user');
+    const trail = localStorage.getItem('@hackathon:trail');
+
+    if (token && user && trail) {
+      const response = await api.post('/users/courses/sign', {
+        trailsIdList: [`${trail}`],
+      });
+
+      localStorage.removeItem('@hackathon:trail');
+      navigate('/profile');
+    }
+  };
+
   const handleLogin = async () => {
     if (email.length === 0) return setError('O e-mail é obrigatorio');
     if (password.length === 0) return setError('O a senha é obrigatoria');
 
     await signIn({ email, password });
 
-    navigate('/profile');
+    handleCourseSign();
   };
 
   return (
