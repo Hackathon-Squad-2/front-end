@@ -38,29 +38,27 @@ export const Login = () => {
       />
       <div className={style.card}>
         <h2 className={style.titulo}>Login</h2>
-        <label htmlFor="">
-          <div className={style.divInput}>
-            <AiOutlineMail className={style.icon} />
-            <input
-              className={style.input}
-              type="text"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </div>
-        </label>
-        <label htmlFor="">
-          <div className={style.divInput}>
-            <FiKey className={style.icon} />
-            <input
-              className={style.input}
-              type="password"
-              value={password}
-              placeholder=""
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </div>
-        </label>
+        <label>E-mail</label>
+        <div className={style.divInput}>
+          <AiOutlineMail className={style.icon} />
+          <input
+            className={style.input}
+            type="text"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </div>
+        <label>Senha</label>
+        <div className={style.divInput}>
+          <FiKey className={style.icon} />
+          <input
+            className={style.input}
+            type="password"
+            value={password}
+            placeholder=""
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
         <button className={style.button} onClick={handleLogin}>
           Entrar
         </button>
