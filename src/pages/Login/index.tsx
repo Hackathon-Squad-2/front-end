@@ -24,9 +24,7 @@ export const Login = () => {
     if (email.length === 0) return setError('O e-mail é obrigatorio');
     if (password.length === 0) return setError('O a senha é obrigatoria');
 
-    signIn({ email, password });
-
-    console.log(localStorage.getItem('@hackathon:token'));
+    await signIn({ email, password });
 
     navigate('/profile');
   };
@@ -61,6 +59,7 @@ export const Login = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
+        {error.length > 0 && <span>{error}</span>}
         <button className={style.button} onClick={handleLogin}>
           Entrar
         </button>
