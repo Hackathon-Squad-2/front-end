@@ -26,8 +26,6 @@ export const Register = () => {
     const user = localStorage.getItem('@hackathon:user');
     const trail = localStorage.getItem('@hackathon:trail');
 
-    console.log(token, user, trail);
-
     if (token && user && trail) {
       const response = await api.post('/users/courses/sign', {
         trailsIdList: [`${trail}`],
